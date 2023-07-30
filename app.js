@@ -4,6 +4,11 @@ const geocode=require("./geocode")
 const weather=require("./weather")
 const port=process.env.PORT || 3000
 
+const path=require("path")
+const hbs=require("hbs")
+const partialsPath=path.join(__dirname,"./views")
+ hbs.registerPartials(partialsPath)
+
 console.log("Please enter the country")
 const country = process.argv[2]
 geocode(country,(error,data)=>{
